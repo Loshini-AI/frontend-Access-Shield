@@ -2,6 +2,6 @@
   "framework": null,
   "installCommand": "pnpm install --ignore-scripts",
   "buildCommand": "pnpm --filter @workspace/accessshield-x build",
-  "outputDirectory": "artifacts/accessshield-x/dist/public",
+  "outputDirectory": "artifacts/accessshield-x/dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
