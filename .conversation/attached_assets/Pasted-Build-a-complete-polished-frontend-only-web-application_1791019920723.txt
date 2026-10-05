@@ -1,0 +1,851 @@
+Build a complete, polished frontend-only web application called **AccessShield X**.
+
+Do NOT build a backend, database, API, authentication server, Kafka, Redis, or FastAPI.
+
+Use realistic local mock data and frontend state so the entire website is fully interactive and demonstrable.
+
+## BRAND
+
+Name:
+**AccessShield X**
+
+Subtitle:
+**Intelligent IAM Least-Privilege Auditor**
+
+Tagline:
+**Detect. Explain. Minimize. Secure.**
+
+The product analyzes cloud access logs against IAM policies and identifies unused, excessive, and overbroad permissions, then displays least-privilege recommendations.
+
+---
+
+# TECHNOLOGY
+
+Use:
+
+* React
+* TypeScript
+* Tailwind CSS
+* Lucide icons
+* Recharts for charts
+* Local mock JSON/TypeScript data
+* React state for interactions
+
+Create clean reusable components.
+
+No backend required.
+
+---
+
+# DESIGN
+
+Create a premium enterprise cybersecurity/SOC interface.
+
+Theme:
+
+Background:
+#050B18
+
+Cards:
+#0A1428
+
+Primary Blue:
+#168BFF
+
+Electric Cyan:
+#00D9FF
+
+AI Purple:
+#6C5CE7
+
+Success:
+#00D68F
+
+Warning:
+#FFB020
+
+Critical:
+#FF4757
+
+Primary text:
+#F5F9FF
+
+Secondary text:
+#8B9BB4
+
+Borders:
+#1B3152
+
+Use:
+
+* Dark navy background
+* Glassmorphism cards
+* Subtle blue/cyan glow
+* Thin borders
+* Professional shadows
+* Smooth transitions
+* Enterprise security aesthetic
+
+Do NOT make it look like a gaming, crypto, or hacker website.
+
+Use:
+
+Inter for normal UI text
+Space Grotesk for headings
+JetBrains Mono for IAM permissions and policy code
+
+---
+
+# GLOBAL LAYOUT
+
+Create:
+
+Left sidebar
+Top navigation
+Main content area
+
+Sidebar:
+
+AccessShield X logo
+
+Navigation:
+
+Overview
+Access Logs
+IAM Policies
+Run Audit
+Findings
+Recommendations
+Policy Diff
+Evidence
+Scenario Simulator
+Reports
+Settings
+
+Active page should have cyan/blue highlight.
+
+Top bar:
+
+Search
+Notifications
+Environment selector
+System status
+User profile
+
+Show:
+
+● SYSTEM SECURE
+
+---
+
+# PAGE 1 — OVERVIEW
+
+Create an impressive security dashboard.
+
+Header:
+
+IAM Security Overview
+
+Subtitle:
+
+Monitor permissions, detect excessive access, and continuously improve least privilege.
+
+Metric cards:
+
+Total Policies
+128
+
+Users
+43
+
+Access Events
+18,642
+
+Security Findings
+76
+
+High Risk
+12
+
+Least Privilege Score
+82%
+
+Create charts:
+
+1. Risk Distribution
+
+* Critical
+* High
+* Medium
+* Low
+
+2. Permission Usage
+
+* Used
+* Unused
+* Overbroad
+
+3. Findings by Service
+
+* S3
+* EC2
+* Lambda
+* RDS
+* IAM
+
+4. Risk Trend
+
+Create a Recent Findings table.
+
+---
+
+# PAGE 2 — ACCESS LOGS
+
+Create an access log management page.
+
+Header:
+
+Access Logs
+
+Create upload area with:
+
+Upload CSV
+Upload JSON
+Load Demo Dataset
+
+Since this is frontend-only, simulate upload using local state.
+
+Display:
+
+Records
+Users
+Services
+Date Range
+
+Create searchable/filterable table:
+
+Timestamp
+User
+Service
+Action
+Resource
+Status
+Region
+
+Example:
+
+Alice
+S3
+GetObject
+company-data/file.csv
+SUCCESS
+
+Bob
+EC2
+StartInstances
+web-server-01
+SUCCESS
+
+Charlie
+Lambda
+InvokeFunction
+payment-service
+SUCCESS
+
+Filters:
+
+User
+Service
+Action
+Status
+
+---
+
+# PAGE 3 — IAM POLICIES
+
+Create policy management page.
+
+Buttons:
+
+Upload Policy
+Load Demo Policies
+Create Policy
+
+Display policy cards/table:
+
+Policy Name
+User
+Services
+Permissions
+Resource Scope
+Risk
+Last Audited
+
+Example policy:
+
+{
+"Effect": "Allow",
+"Action": [
+"s3:*",
+"ec2:*",
+"lambda:*"
+],
+"Resource": "*"
+}
+
+Clicking a policy opens a detailed policy viewer.
+
+Use code-editor styling for JSON.
+
+---
+
+# PAGE 4 — RUN AUDIT
+
+Create a fully interactive audit page.
+
+Title:
+
+Run IAM Security Audit
+
+Create audit workflow:
+
+01 Load Access Logs
+02 Parse IAM Policies
+03 Normalize Permissions
+04 Compare Access
+05 Detect Risks
+06 Generate Recommendations
+07 Generate Evidence
+08 Generate Report
+
+Button:
+
+RUN AUDIT
+
+When clicked, animate each step.
+
+Show:
+
+✓ Access logs loaded
+✓ IAM policies parsed
+✓ Permissions normalized
+✓ Actual vs granted access compared
+✓ Unused permissions detected
+✓ Overbroad permissions detected
+✓ Risk calculated
+✓ Recommendations generated
+
+Then display:
+
+AUDIT COMPLETED
+
+Audit Health:
+87/100
+
+Findings:
+76
+
+High Risk:
+12
+
+Recommendations:
+31
+
+---
+
+# PAGE 5 — FINDINGS
+
+Create professional security findings page.
+
+Filters:
+
+Severity
+Finding Type
+Service
+User
+Status
+
+Finding types:
+
+UNUSED_PERMISSION
+OVERBROAD_PERMISSION
+WILDCARD_ACTION
+WILDCARD_RESOURCE
+DESTRUCTIVE_PERMISSION
+EXCESSIVE_SCOPE
+
+Create finding cards/table.
+
+Each finding shows:
+
+Severity
+User
+Service
+Permission
+Resource
+Risk Score
+Confidence
+Status
+
+Example:
+
+CRITICAL
+
+Alice
+
+ec2:TerminateInstances
+
+Resource: *
+
+Risk Score: 96/100
+
+Confidence: 97%
+
+Finding:
+
+Destructive permission with unrestricted resource scope and no observed usage.
+
+Clicking a finding opens detailed evidence.
+
+---
+
+# PAGE 6 — RECOMMENDATIONS
+
+Create:
+
+Least-Privilege Recommendations
+
+Each recommendation should show:
+
+Current Permission
+Observed Usage
+Recommended Permission
+Reason
+Risk Reduction
+Confidence
+
+Example:
+
+CURRENT:
+
+s3:*
+
+OBSERVED:
+
+s3:GetObject
+s3:PutObject
+
+RECOMMENDED:
+
+s3:GetObject
+s3:PutObject
+
+Risk:
+
+HIGH → LOW
+
+Confidence:
+
+94%
+
+Buttons:
+
+Review
+Accept
+Reject
+
+Use frontend state so Accept/Reject changes the status.
+
+---
+
+# PAGE 7 — POLICY DIFF
+
+Create a professional policy comparison screen.
+
+LEFT:
+
+CURRENT POLICY
+
+RIGHT:
+
+RECOMMENDED POLICY
+
+Example:
+
+CURRENT:
+
+s3:*
+Resource: *
+
+RECOMMENDED:
+
+s3:GetObject
+s3:PutObject
+
+Resource:
+arn:aws:s3:::company-data/*
+
+Visual rules:
+
+Removed permissions = red
+
+Retained permissions = green
+
+Changed resources = blue
+
+Summary:
+
+Permissions:
+23 → 2
+
+Resource Scope:
+
+* → company-data/*
+
+Risk:
+HIGH → LOW
+
+Least-Privilege Improvement:
+91%
+
+---
+
+# PAGE 8 — EVIDENCE
+
+Create an evidence/explanation page.
+
+Title:
+
+Why was this permission flagged?
+
+Example finding:
+
+ec2:TerminateInstances
+
+Show evidence checklist:
+
+✓ Permission granted by IAM policy
+
+✓ Destructive operation
+
+✓ Resource scope is *
+
+✗ No matching access event
+
+✓ No usage during analysis period
+
+Show:
+
+Observed Access
+
+ec2:DescribeInstances
+ec2:StartInstances
+
+Not Observed
+
+ec2:TerminateInstances
+ec2:DeleteInstances
+
+Add a 90-day timeline visualization.
+
+Show:
+
+Matching Events: 0
+
+Confidence:
+97%
+
+This page must clearly explain WHY the system made the recommendation.
+
+---
+
+# PAGE 9 — SCENARIO SIMULATOR
+
+This is the main hackathon demonstration page.
+
+Title:
+
+IAM Scenario Simulator
+
+Subtitle:
+
+Change user activity and see how AccessShield X adapts.
+
+Create:
+
+Current User:
+Alice
+
+Current Policy:
+
+s3:*
+
+Current Observed Access:
+
+s3:GetObject
+s3:PutObject
+
+Show:
+
+s3:DeleteObject
+UNUSED
+
+Create an interactive form:
+
+User
+Service
+Action
+Resource
+
+Button:
+
+ADD EVENT & RE-ANALYZE
+
+When the user adds:
+
+Alice
+S3
+DeleteObject
+company-data/file.csv
+
+and clicks the button:
+
+Update the local mock data.
+
+Change:
+
+s3:DeleteObject
+
+FROM:
+
+UNUSED
+
+TO:
+
+USED
+
+Update:
+
+Finding count
+Risk score
+Recommendation
+Permission usage chart
+Evidence count
+
+Show a large:
+
+BEFORE → AFTER
+
+visual comparison.
+
+Add another button:
+
+RESET SCENARIO
+
+---
+
+# PAGE 10 — REPORTS
+
+Create professional audit report preview.
+
+Include:
+
+AccessShield X
+
+IAM Audit Report
+
+Audit Date
+
+Summary
+
+Total Policies
+Total Users
+Access Events
+Findings
+High Risk Findings
+
+Risk Distribution
+
+Unused Permissions
+
+Overbroad Permissions
+
+Top Recommendations
+
+Risk Reduction
+
+Evidence Summary
+
+Buttons:
+
+Generate Report
+Download PDF
+Export CSV
+Export JSON
+
+These can simulate downloads using frontend-generated files if possible.
+
+---
+
+# PAGE 11 — SETTINGS
+
+Create a settings page.
+
+Sections:
+
+Organization
+Appearance
+Audit Configuration
+Risk Thresholds
+Notifications
+Integrations
+
+Roles:
+
+ADMIN
+AUDITOR
+VIEWER
+
+Use mock settings.
+
+---
+
+# DEMO DATA
+
+Create realistic mock data.
+
+Minimum:
+
+20 users
+30 policies
+500 access logs
+50 findings
+30 recommendations
+
+Services:
+
+S3
+EC2
+Lambda
+RDS
+IAM
+
+Permissions:
+
+s3:GetObject
+s3:PutObject
+s3:DeleteObject
+s3:*
+ec2:StartInstances
+ec2:StopInstances
+ec2:TerminateInstances
+ec2:DescribeInstances
+lambda:InvokeFunction
+lambda:DeleteFunction
+rds:DescribeDBInstances
+
+Ensure mock data is logically consistent.
+
+Used permission = matching access log exists.
+
+Unused permission = no matching access log.
+
+Overbroad permission = policy grants more than observed usage.
+
+---
+
+# INTERACTIVITY
+
+Everything important must work without a backend.
+
+Implement:
+
+* Navigation
+* Search
+* Filters
+* Sorting
+* Pagination
+* Upload simulation
+* Run Audit
+* Finding details
+* Accept recommendation
+* Reject recommendation
+* Policy comparison
+* Scenario Simulator
+* Re-analysis
+* Reset Scenario
+* Charts
+* Notifications
+* Toast messages
+* Modal dialogs
+
+Use React state/local storage where useful.
+
+---
+
+# MAIN DEMO FLOW
+
+A judge should be able to do:
+
+Dashboard
+↓
+Access Logs
+↓
+IAM Policies
+↓
+Run Audit
+↓
+Findings
+↓
+Evidence
+↓
+Recommendations
+↓
+Policy Diff
+↓
+Scenario Simulator
+↓
+Add new access event
+↓
+Re-analyze
+↓
+Finding changes
+↓
+Recommendation changes
+↓
+Generate Report
+
+The entire application must feel like one connected product, not separate static pages.
+
+---
+
+# IMPORTANT
+
+This is a FRONTEND-ONLY implementation.
+
+Do NOT create:
+
+* FastAPI
+* Python backend
+* PostgreSQL
+* Redis
+* Kafka
+* Kubernetes
+* External APIs
+* Authentication server
+
+Use realistic local mock data.
+
+Make the website fully functional as a frontend demo.
+
+Do not rebuild or remove existing AccessShield X functionality if any already exists. Improve and complete the existing project.
+
+The final website should look like a real enterprise IAM security product suitable for a hackathon demonstration.
+
+Brand:
+
+**ACCESS SHIELD X**
+
+**Intelligent IAM Least-Privilege Auditor**
+
+**Detect. Explain. Minimize. Secure.**

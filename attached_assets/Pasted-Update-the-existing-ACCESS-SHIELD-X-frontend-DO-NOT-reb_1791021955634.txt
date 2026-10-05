@@ -1,0 +1,378 @@
+Update the existing ACCESS SHIELD X frontend. DO NOT rebuild the project from scratch and DO NOT change the overall architecture.
+
+We are currently building the FRONTEND ONLY. Backend, PostgreSQL, IAM engine, ML, n8n and deployment will be added later.
+
+The current problem is that when the website opens, it goes directly into the dashboard/user area. This does NOT feel like a real-world enterprise application.
+
+Fix the frontend user flow.
+
+### REQUIRED USER FLOW
+
+The application must follow:
+
+Landing / Application Entry
+↓
+Sign In
+↓
+Authenticated Workspace
+↓
+Dashboard
+
+The dashboard must NOT be the first screen for a logged-out user.
+
+---
+
+# 1. SIGN-IN PAGE
+
+Create a professional enterprise cybersecurity login page.
+
+Brand:
+
+ACCESS SHIELD X
+
+Subtitle:
+
+Intelligent IAM Least-Privilege Auditor
+
+Tagline:
+
+Detect. Explain. Minimize. Secure.
+
+Design:
+
+* Dark navy cybersecurity background
+* Subtle blue/cyan glow
+* Shield/security visual
+* Premium enterprise SaaS appearance
+* Clean and professional
+* No gaming aesthetic
+* No excessive neon
+
+Login card:
+
+### Welcome back
+
+Sign in to your AccessShield X workspace.
+
+Fields:
+
+* Work Email
+* Password
+
+Controls:
+
+* Show/hide password
+* Remember me
+* Forgot password?
+
+Primary button:
+
+Sign In
+
+Secondary option:
+
+Continue with SSO
+
+Also show:
+
+Secure enterprise IAM monitoring
+
+Encryption / security indicator
+
+Privacy and Terms links
+
+---
+
+# 2. FRONTEND DEMO LOGIN
+
+Because there is no backend yet, implement mock authentication only.
+
+Demo credentials:
+
+Email:
+[admin@accessshieldx.com](mailto:admin@accessshieldx.com)
+
+Password:
+Admin@123
+
+When correct:
+
+Sign in successfully and navigate to:
+
+/dashboard
+
+When incorrect:
+
+Show a professional error message:
+
+Invalid email or password.
+
+Do not expose technical errors.
+
+Store the authenticated demo session using frontend state/localStorage so refreshing the page does not immediately log the user out.
+
+---
+
+# 3. ROUTE PROTECTION
+
+Create frontend route protection.
+
+Logged out user:
+
+/ → sign-in
+
+/dashboard → redirect to sign-in
+
+/findings → redirect to sign-in
+
+/policies → redirect to sign-in
+
+etc.
+
+Logged-in user:
+
+/dashboard → dashboard
+
+/access-logs → access logs
+
+/policies → IAM policies
+
+/audit → run audit
+
+/findings → findings
+
+/recommendations → recommendations
+
+/policy-diff → policy diff
+
+/evidence → evidence
+
+/simulator → scenario simulator
+
+/reports → reports
+
+/settings → settings
+
+---
+
+# 4. USER PROFILE
+
+After login, show the authenticated user in the top-right.
+
+Example:
+
+Alex Morgan
+
+Security Administrator
+
+[admin@accessshieldx.com](mailto:admin@accessshieldx.com)
+
+Avatar initials:
+
+AM
+
+Dropdown:
+
+* Profile
+* Organization
+* Settings
+* Security
+* Sign Out
+
+Clicking Sign Out must clear the frontend session and return to the sign-in page.
+
+---
+
+# 5. FIRST-TIME WORKSPACE EXPERIENCE
+
+Add a realistic first-time workspace/onboarding flow.
+
+After the first successful demo login, show:
+
+### Welcome to AccessShield X
+
+Let's prepare your IAM security workspace.
+
+Steps:
+
+1. Import Access Logs
+2. Import IAM Policies
+3. Configure Audit
+4. Run First Audit
+
+Show progress:
+
+0% → 25% → 50% → 75% → 100%
+
+Because this is currently frontend-only, use mock/demo data.
+
+Provide:
+
+Use Demo Environment
+
+button.
+
+When selected, populate the application with our realistic demo data.
+
+---
+
+# 6. DASHBOARD
+
+After authentication/onboarding, show the existing IAM security dashboard.
+
+Title:
+
+IAM Security Overview
+
+Metrics:
+
+* IAM Policies — 128
+* Users — 43
+* Access Events — 18,642
+* Findings — 76
+* High Risk — 12
+* Least Privilege Score — 82%
+
+Charts:
+
+* Risk Distribution
+* Permission Usage
+* Findings by Service
+* Risk Trend
+
+Recent findings and recent access activity.
+
+---
+
+# 7. IMPORTANT
+
+Do NOT remove any existing AccessShield X pages.
+
+Keep:
+
+* Overview
+* Access Logs
+* IAM Policies
+* Run Audit
+* Findings
+* Recommendations
+* Policy Diff
+* Evidence
+* Scenario Simulator
+* Reports
+* Settings
+
+Only improve the application flow.
+
+---
+
+# 8. NAVIGATION BEHAVIOR
+
+When logged in:
+
+Sidebar navigation works normally.
+
+When logged out:
+
+The protected application pages cannot be accessed.
+
+If the user manually enters:
+
+/findings
+
+without being authenticated:
+
+redirect to:
+
+/signin
+
+If the user is already authenticated and opens:
+
+/signin
+
+redirect to:
+
+/dashboard
+
+---
+
+# 9. REAL-WORLD FEEL
+
+The application should feel like a real enterprise cybersecurity product.
+
+The complete flow should be:
+
+User opens website
+
+↓
+
+ACCESS SHIELD X sign-in
+
+↓
+
+User signs in
+
+↓
+
+Welcome/onboarding if first login
+
+↓
+
+Demo environment loaded
+
+↓
+
+IAM Security Dashboard
+
+↓
+
+User analyzes:
+
+Access Logs
+
+Policies
+
+Audit
+
+Findings
+
+Recommendations
+
+Evidence
+
+Policy Diff
+
+Scenario Simulator
+
+Reports
+
+↓
+
+User signs out
+
+↓
+
+Returns to Sign In
+
+---
+
+# 10. DO NOT IMPLEMENT BACKEND YET
+
+Do NOT add:
+
+* FastAPI
+* PostgreSQL
+* Redis
+* Kafka
+* Flink
+* ML backend
+* n8n
+* Keycloak
+* External authentication
+* Cloud API integrations
+
+Use clean frontend abstractions so these can be connected later.
+
+The goal of this task is to make the existing frontend behave like a realistic, complete enterprise application.
+
+After implementing this, run the application and fix all routing, TypeScript, UI and console errors.

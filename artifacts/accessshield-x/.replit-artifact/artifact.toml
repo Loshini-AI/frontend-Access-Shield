@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "AccessShield X"
+description = "A frontend-only intelligent IAM least-privilege auditor demo for security teams, with realistic local logs, policies, findings, evidence, recommendations, and interactive scenario analysis."
+version = "1.0.0"
+id = "artifacts/accessshield-x"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19275
+
+[services.development]
+run = "pnpm --filter @workspace/accessshield-x run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/accessshield-x", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/accessshield-x/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19275"
+BASE_PATH = "/"
